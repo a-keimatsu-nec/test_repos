@@ -1,0 +1,3 @@
+compile:
+  override:
+    - sphinx-build -b html -c 2portfolio -d build/doctrees 2portfolio build
