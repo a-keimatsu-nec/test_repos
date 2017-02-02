@@ -17,6 +17,6 @@ deployment:
   github:
     branch: master
     commands:
-      - ./scripts/release_push.sh
+      - bash scripts/release_push.sh
 
 

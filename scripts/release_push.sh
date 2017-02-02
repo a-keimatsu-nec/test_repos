@@ -1,27 +1,27 @@
 #!/bin/bash
 
-# gitƒ†[ƒUİ’è
-git config --global user.email "a-keimatsu@cp.jp.nec.com" #ƒRƒ~ƒbƒgƒ†[ƒU‚Ì—LŒø‚Èƒ[ƒ‹ƒAƒhƒŒƒX
-git config --global user.name "Akitsugu Keimatsu" #ƒRƒ~ƒbƒgƒ†[ƒU‚Ì–¼‘O
+# gitãƒ¦ãƒ¼ã‚¶è¨­å®š
+git config --global user.email "a-keimatsu@cp.jp.nec.com" #ã‚³ãƒŸãƒƒãƒˆãƒ¦ãƒ¼ã‚¶ã®æœ‰åŠ¹ãªãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹
+git config --global user.name "Akitsugu Keimatsu" #ã‚³ãƒŸãƒƒãƒˆãƒ¦ãƒ¼ã‚¶ã®åå‰
 
-# ƒŠƒŠ[ƒXƒo[ƒWƒ‡ƒ“–¼
+# ãƒªãƒªãƒ¼ã‚¹ãƒãƒ¼ã‚¸ãƒ§ãƒ³å
 CI_RELEASE_VERSION = ` date + "v%Y%m%d%H%M%S" `
 
-# ƒŠƒŠ[ƒXƒuƒ‰ƒ“ƒ`–¼
+# ãƒªãƒªãƒ¼ã‚¹ãƒ–ãƒ©ãƒ³ãƒå
 CI_RELEASE_BRANCH = "release/${CI_RELEASE_VERSION}"
 
-# ƒŠƒ‚[ƒgƒŠƒ|ƒWƒgƒŠ
+# ãƒªãƒ¢ãƒ¼ãƒˆãƒªãƒã‚¸ãƒˆãƒª
 CI_REMOTE_REPOSITORY = "git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
 
-# ƒŠƒŠ[ƒXƒuƒ‰ƒ“ƒ`ì¬
+# ãƒªãƒªãƒ¼ã‚¹ãƒ–ãƒ©ãƒ³ãƒä½œæˆ
 git checkout -b ${ CI_RELEASE_BRANCH }
 
-#•ÏXƒtƒ@ƒCƒ‹‚ğ‚ğ‚·‚×‚Ä’Ç‰Á
+#å¤‰æ›´ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚’ã™ã¹ã¦è¿½åŠ 
 git add --all :/build/
 
-#ƒRƒ~ƒbƒg
+#ã‚³ãƒŸãƒƒãƒˆ
 git commit -m "[auto] release branch (${CI_RELEASE_VERSION})"
 
-#ƒŠƒ‚[ƒg‚ÉƒvƒbƒVƒ…
+#ãƒªãƒ¢ãƒ¼ãƒˆã«ãƒ—ãƒƒã‚·ãƒ¥
 git push ${ CI_REMOTE_REPOSITORY } ${ CI_RELEASE_BRANCH }
 
