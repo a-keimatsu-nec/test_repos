@@ -1,5 +1,13 @@
-compile:
+machine:
+  services:
+    - docker
+
+dependencies:
   override:
-    - apt-get install python-sphinx
-    - sphinx-build -b html -c 2portfolio -d build/doctrees 2portfolio build
- 
+    - docker info
+    - docker build -t sphinx docker
+
+test:
+  override:
+    - docker run -v $(pwd):/app --name sphinx sphinx sphinx-build -b html -c 2portfolio -d build/doctrees 2portfolio build
+
