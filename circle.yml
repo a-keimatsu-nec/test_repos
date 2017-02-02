@@ -10,6 +10,8 @@ dependencies:
 test:
   override:
     - docker run -v $(pwd):/app --name sphinx sphinx sphinx-build -b html -c 2portfolio -d build/doctrees 2portfolio build
+  post:
+    - chmod 755 ./scripts/release_push.sh
 #  post:
 #    - docker cp sphinx:/app/build $CIRCLE_ARTIFACTS/
 
@@ -17,6 +19,6 @@ deployment:
   github:
     branch: master
     commands:
-      - bash scripts/release_push.sh
+      - ./scripts/release_push.sh
 
 

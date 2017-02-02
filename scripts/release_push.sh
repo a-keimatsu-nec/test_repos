@@ -5,13 +5,13 @@ git config --global user.email "a-keimatsu@cp.jp.nec.com" #コミットユーザ
 git config --global user.name "Akitsugu Keimatsu" #コミットユーザの名前
 
 # リリースバージョン名
-CI_RELEASE_VERSION = ` date + "v%Y%m%d%H%M%S" `
+CI_RELEASE_VERSION=` date + "v%Y%m%d%H%M%S" `
 
 # リリースブランチ名
-CI_RELEASE_BRANCH = "release/${CI_RELEASE_VERSION}"
+CI_RELEASE_BRANCH="release/${CI_RELEASE_VERSION}"
 
 # リモートリポジトリ
-CI_REMOTE_REPOSITORY = "git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
+CI_REMOTE_REPOSITORY="git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
 
 # リリースブランチ作成
 git checkout -b ${ CI_RELEASE_BRANCH }
