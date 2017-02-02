@@ -10,4 +10,5 @@ dependencies:
 test:
   override:
     - docker run -v $(pwd):/app --name sphinx sphinx sphinx-build -b html -c 2portfolio -d build/doctrees 2portfolio build
-
+  post:
+    - docker cp sphinx:/app/build $CIRCLE_ARTIFACTS/
