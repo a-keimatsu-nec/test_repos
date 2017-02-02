@@ -14,7 +14,7 @@ CI_RELEASE_BRANCH="release/${CI_RELEASE_VERSION}"
 CI_REMOTE_REPOSITORY="git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
 
 # リリースブランチ作成
-git checkout -b ${ CI_RELEASE_BRANCH }
+git checkout -b ${CI_RELEASE_BRANCH}
 
 #変更ファイルををすべて追加
 git add --all :/build/
@@ -23,5 +23,5 @@ git add --all :/build/
 git commit -m "[auto] release branch (${CI_RELEASE_VERSION})"
 
 #リモートにプッシュ
-git push ${ CI_REMOTE_REPOSITORY } ${ CI_RELEASE_BRANCH }
+git push ${CI_REMOTE_REPOSITORY} ${CI_RELEASE_BRANCH}
 
